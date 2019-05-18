@@ -53,8 +53,9 @@ export default [
     entry: ["./src/js"],
     target: "electron-renderer",
     plugins: [
-      new HtmlPlugin({ title: "Focus" }),
+      new HtmlPlugin({ title: "Focus", template: "./src/js/index.html" }),
       new HardSourcePlugin({ cacheDirectory }),
+      new CopyPlugin([{ from: "./src/js/*.css", flatten: true }]),
     ],
   }),
 ]
